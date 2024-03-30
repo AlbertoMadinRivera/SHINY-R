@@ -1,5 +1,5 @@
 ---
-title: '**USO DE R SHINY**'
+title: '**MANUAL DE R SHINY**'
 author: "Madin Rivera, Alberto."
 date: "`r format(Sys.time(), '%b %d, %Y')`"
 output:
@@ -35,7 +35,155 @@ link-citations: yes
 
 \newpage
 
-# INTERFAZ DE USUARIO
+# FUNCIONES BÁSICAS
+
+\newpage
+
+`R` es un lenguaje de programación ampliamente utilizado en estadística y análisis de datos. Una parte esencial de trabajar con `R` es comprender y utilizar sus funciones, que son bloques de código diseñados para realizar tareas específicas. 
+
+\newpage
+
+## 1. FUNCIONES BÁSICAS
+
+1. `print()`
+
+La función `print()` se utiliza para imprimir en la consola el valor o los objetos especificados. Es una de las funciones más básicas en `R` y se utilizan comunmente para mostrar resultados.
+
+```{r, eval=FALSE}
+# Ejemplo de uso de la función print()
+print("¡Hola, mundo!")
+```
+
+2. `sum()`
+
+La función `sum()` se utiliza para calcular la suma de los elementos de un vector numérico.
+
+```{r, eval=FALSE}
+# Ejemplo de uso de la función sum()
+vector = c(1, 2, 3, 4, 5)
+total = sum(vector)
+print(total)
+```
+
+3. `mean()`
+
+La función `mean()` se utiliza para calcular la media (promedio) de los elementos en un vector numérico.
+
+```{r, eval=FALSE}
+# Ejemplo de uso de la función mean()
+vector = c(1, 2, 3, 4, 5)
+promedio = mean(vector)
+print(promedio)
+```
+
+4. `length()`
+
+La función `length()` se utiliza para obtener la longitud (número de elementos de un vector).
+
+```{r, eval=FALSE}
+# Ejemplo de uso de la función length()
+vector = c(1, 2, 3, 4, 5)
+longitud = length(vector)
+print(longitud)
+```
+
+5. `seq()`
+
+La función `seq()` se utiliza para generar secuancias de números.
+
+```{r, eval=FALSE}
+# Ejemplo de uso de la función seq()
+secuencia ? seq(1, 10, by = 2)  
+# Genera una secuencia del 1 al 10 con incrementos de 2
+print(secuencia)
+```
+
+Estas son solo algunas de las funciones básicas en `R` que serán útiles al comenzar a trabajar con este lenguaje. A medida que uno se familiariza más con `R`, se puede explorar y utilizar una amplia variedad de funciones para manipular datos, realizar análisis estadísticos y crear visualizaciones.
+
+## FUNCIONES AVANZADAS
+
+A continuación se presenta otra lista de funciones más avanzadas dentro de lo básico en `R` base.
+
+6. `data.frame()`
+
+La función `data.frame()` es utilizada para crear un data frame, que es una estructura de datos tabular similar a la hoja de cálculo, donde las columnas pueden ser diferentes tipos de datos (numéricos, carácteres, factores, etc.).
+
+```{r, eval=FALSE}
+# Ejemplo de uso de la función data.frame()
+datos = data.frame(
+  Nombre = c("Juan", "María", "Pedro"),
+  Edad = c(25, 30, 28),
+  Altura = c(170, 165, 180)
+)
+print(datos)
+```
+
+7. `list()`
+
+La función `list()` se utiliza para crear listas en `R`, que son estructuras de datos flexibles que pueden contener elementos de diferentes tipos.
+
+```{r, eval=FALSE}
+# Ejemplo de uso de la función list()
+mi_lista = list(nombre = "Juan", edad = 25, casado = FALSE)
+print(mi_lista)
+```
+
+8. Bucles `for`
+
+El bucle `for` se utiliza para iterar sobre una secuencia de valores y ejecutar un bloque de código repetidamente.
+
+```{r, eval=FALSE}
+# Ejemplo de uso de un bucle for
+for (i in 1:5) {
+  print(paste("Iteración", i))
+}
+```
+
+9. Funciones definidas por el usuario
+
+Las funciones definidas por el usuario permiten escribir las propias funciones para realizar tareas específicas.
+
+```{r}
+# Ejemplo de definición de una función
+mi_funcion = function(x, y) {
+  resultado = x^2 + y^2
+  return(resultado)
+}
+print(mi_funcion(3, 4))
+```
+
+10. Shiny `fluidPage()`
+
+En `Shiny`, la función `fluidPage()` se utiliza para crear una página fluida en la interfaz de usuario, donde los elemtos se ajustan automáticamente al tamaño de la ventana del navegador.
+
+```{r, eval=FALSE}
+# Ejemplo de uso de la función fluidPage() en Shiny
+library(shiny)
+
+ui = fluidPage(
+  titlePanel("Mi primera aplicación Shiny"),
+  sidebarLayout(
+    sidebarPanel(
+      # Aquí van los controles de entrada, si los hubiera
+    ),
+    mainPanel(
+      # Aquí van los resultados o gráficos generados
+    )
+  )
+)
+
+server = function(input, output) {
+  # Aquí va la lógica de la aplicación
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+Estas funciones son fundamentales en `R` y `Shiny`, y permiten realizar una variedad de tareas desde la manipulación de datos hasta la creación de webs interactivas.
+
+\newpage
+
+# INTERFAZ DE USUARIO CON SHINY
 
 \newpage
 
@@ -133,7 +281,7 @@ Cuando se utiliza la aplicación `Shiny`, se observa que en la consola lanza un 
 
 [^b]:Cuando ejecutas una aplicación Shiny en `R`, verás un mensaje que indica "Listening on **http://127.0.0.1:XXXX**", donde "**XXXX**" es un número de puerto específico. Esto significa que la aplicación Shiny está corriendo localmente en tu máquina en una dirección IP local (127.0.0.1) en el puerto indicado.
 
-![Salida de la consola](Salida.png)
+![Salida de la consola](Salida.png){width=70%}
 
 \newpage
 
@@ -168,7 +316,7 @@ server = function(input, output){
 shinyApp(ui = ui, server = server)
 ```
 
-![Aplicación con el panel lateral derecho](Panel de aplicación.png)
+![Aplicación con el panel lateral derecho](Panel de aplicación.png){width=70%}
 
 \newpage
 
@@ -310,7 +458,7 @@ server = function(input, output){}
 shinyApp(ui = ui, server  = server)
 ```
 
-![Markdown dentro de Shiny App R](Markdown.png)
+![Markdown dentro de Shiny App R](Markdown.png){width=70%}
 
 \newpage
 
@@ -353,7 +501,7 @@ server = function(input, output){
 shinyApp(ui = ui, server = server)
 ```
 
-![HTML Dentro de Shiny](Salida HTML.png)
+![HTML Dentro de Shiny](Salida HTML.png){width=70%}
 
 Teniendo estos principios de `HTML`, podemos sobreescribir los tìtulos en los diferentes paneles de nuestra aplicación `Shiny` utilizando las etiquetas de título `HTML`. Por ejemplo, hemos utilizado la etiqueta `h1()` para reemplazar el título en el `titlePanel()`, lo que nos permite personalizar aún pas la presentación del título principal de la aplicación. Además, también hemos también aplicado esta técnica al `sidebarPanel()` y al `mainPanel()`, donde hemos reemplazado los títulos predeterminados con etiquetas `h1()` de `HTML`. Esto nos ofrece una mayor flexibilidad en la presentación y personalización del aspecto y la estructura de nuestra aplicación `Shiny`. 
 
@@ -384,7 +532,7 @@ server = function(input, output){
 shinyApp(ui = ui, server = server)
 ```
 
-![Entrada de títulos con estilo HTML](Titulos HTML.png)
+![Entrada de títulos con estilo HTML](Titulos HTML.png){width=70%}
 
 \newpage
 
@@ -428,7 +576,7 @@ server = function(input, output){
 shinyApp(ui = ui, server = server)
 ```
 
-![Pruebas con los titulares de diferentes tamaños de HTML](Pruebas títulos.png)
+![Pruebas con los titulares de diferentes tamaños de HTML](Pruebas títulos.png){width=70%}
 
 \newpage
 
@@ -480,7 +628,7 @@ server = function(input, output){
 shinyApp(ui = ui, server = server)
 ```
 
-![Prueba de párrafos y ecuaciones matemáticas](Párrafo_Mate.png)
+![Prueba de párrafos y ecuaciones matemáticas](Párrafo_Mate.png){width=70%}
 
 \newpage
 
@@ -521,7 +669,7 @@ server = function(input, output){
 shinyApp(ui = ui, server = server)
 ```
 
-![Prueba de Imagen dentro de Shiny](Imagen prueba.png)
+![Prueba de Imagen dentro de Shiny](Imagen prueba.png){width=70%}
 
 \newpage
 
@@ -560,7 +708,7 @@ server = function(input, output){}
 shinyApp(ui = ui, server = server)
 ```
 
-![División por segmentos](Primer widget.png)
+![División por segmentos](Primer widget.png){width=70%}
 
 \newpage
 
@@ -635,4 +783,94 @@ server = function(input, output){}
 shinyApp(ui = ui, server = server)
 ```
 
-![Widgets básicos para explorar en Shiny](Widgets básicos.png)
+![Widgets básicos para explorar en Shiny](Widgets básicos.png){width=70%}
+
+\newpage
+
+Dentro de la interfaz de usuario (UI) de la aplicación `Shiny`, se están agregando cuatro nuevos widgets dentro de un nuevo `fluidRow()`. Estos widgets son esenciales para interactuar con los usuarios y capturar su entrada de datos de manera efectiva.
+
+El primer widget es un `dateRangeInput()`, que proporciona a los usuarios la capacidad de seleccionar un rango de fechas. Este widget está configurado para mostrar el rango de fechas en formato día/mes/año (`"dd/mm/yyy"`) y se ha establecido un separador (`separator =`) para visualizar claramente el rango seleccionado.
+
+El segundo widget añadido es un `fileInput()`. Este widget permite a los usuarios cargar archivos en la aplicación. Se ha configurado con una etiqueta de botón personalizada ("Archivo") y un marcador de posición para guiar a los usuarios sobre qué tipo de archivo deben seleccionar. Además, se ha habilitado la opción `multiple = TURE`, lo que permite que los usuarios carguen varios archivos simultaneamente.
+
+El tercer widget agregado es un `helpText()`, que no es técnicamente un widget interactivo, pero proporciona información útil y explicativa a los usuarios. Este caso se utiliza para ofrecer aclaraciones sobre el funcionamiento de otros widgets en la aplicación, así como sobre variables y funciones relacionadas.
+
+Por último, se incluye un `numericInput()`, que permite a los usuarios introducir valores numéricos dentro de un rango específico. Este widget se ha configurado con un valor inicial de 80 y permite a los usuarios aumentar o disminuir el valor en incrementos de 5 unidades, dentro de un rango de 50 a 120.
+
+```{r, eval=FALSE}
+library(shiny)
+
+ui = fluidPage(
+  titlePanel("Widget básicos"),
+  fluidRow(
+    column(3,
+           h3("Botones"),
+           actionButton("accion", "Acción"),
+           br(),
+           br(),
+           submitButton("¡Ir!",
+                        icon = icon("calendar"))),
+    column(3,
+           h3("checkGroup"),
+           checkboxGroupInput("checkGroup", "Opciones:",
+                              choices = c("Opción 1", "Opción 2", "Opción 3"),
+                              selected = "Opción 1")),
+    column(3,
+           h3("checkBox"),
+           checkboxInput("checkBox", "Opcion A",
+                         value = TRUE)
+    ),
+    column(3,
+           dateInput("fecha",
+                     h3("Fecha y Hora"),
+                     value = format(Sys.time(), 
+                                    "%Y-%m-%d %H:%M:%S")))
+  ),
+  
+  # Se agrega un nuevo fluidRow()
+  fluidRow(
+    column(3,
+           dateRangeInput("Fechas",
+                          h3("Rango de Fechas"),
+                          language = "es",
+                          format = "dd/mm/yyyy",
+                          # start = "2018-12-01"
+                          # end = "2050-12-30"
+                          separator = " a ")
+           ),
+    column(3,
+           fileInput("Fichero",
+                     # Carga un archivo en una carpeta temporal
+                     h3("Fichero"),
+                     buttonLabel = "Archivo",
+                     placeholder = "Selecciona un Fichero",
+                     # Para subir más de un fichero
+                     multiple = TRUE)
+           ),
+    column(3,
+           h3("Texto de Ayuda"),
+           helpText("Nota: el texto de ayuda no es
+                    un widget realmente,",
+                    "Pero nos permite aclarar el funcionamiento de otros
+                    widgets. Incluso variables y otras funciones.")
+           ),
+    column(3,
+           numericInput("Número",
+                        h3("Input numérico"),
+                        min = 50,
+                        max = 120,
+                        step = 5, # Suba y baje de 5 en 5
+                        value = 80
+                        )
+           )
+  )
+)
+
+server = function(input, output){}
+
+shinyApp(ui = ui, server = server)
+```
+
+![Ampliación de widgets](Ampliación de widgets.png){width=70%}
+
+Estos nuevos widgets amplían la funcionalidad de la aplicación Shiny al proporcionar a los usuarios una gama más amplia de opciones de interacción y entrada de datos, desde la selección de fechas hasta la carga de archivos y la introducción de valores numéricos. Esta diversidad de widgets enriquece la experiencia del usuario y hace que la aplicación sea más versátil y útil para sus propósitos previstos.
