@@ -18,3 +18,9 @@ Las aplicaciones `Shiny` se ejecutan en un navegador web, lo que las hace accesi
 * Desarrollar dashboards para monitoreo de datos en tiempo real o reportes automatizados.
 
 **Shiny** es una herramienta poderosa y flexible para convertir análisis en `R` en aplicaciones web interactivas sin necesidad de ser un experto en desarrollo web.
+
+## OBJERIVO DEL REPOSITORIO
+
+El presente repositorio digital se erige con una finalidad primordial de catalogar de manera exhaustiva un `R Markdown` en proceso de elaboración, en estrecha colaboración con **Shiny**. En el cuerpo del manual, se procede a la elucidación detallada de una diversidad de procedimientos, fragmentos de código y componentes inherentes a **Shiny** `R` susceptibles de ser configurados y ejecutados. 
+
+Concomitantemente, este archivo de libre acceso se consagra a la creación de Plantillas especializadas en la ciencia de datos, Paneles de control y Cuadros de mando interactivos, con la aspiración de que, a futuro, sean implementados y puestos en funcionamiento para beneficio y desarrollo de Pequeñas y Medianas Empresas (PyMes) emergentes.
